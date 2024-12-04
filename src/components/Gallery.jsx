@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Spinner, Alert, Card, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 class Gallery extends Component {
@@ -90,7 +91,9 @@ class Gallery extends Component {
           {movies.map((movie, index) => (
             <div key={index} className="px-2">
               <Card className="gallery-card border-0 position-relative overflow-hidden">
-                <Card.Img variant="top" src={movie.Poster} alt={movie.Title} className="d-block w-100 gallery-img" />
+                <Link to={`/movie-details/${movie.imdbID}`}>
+                  <Card.Img variant="top" src={movie.Poster} alt={movie.Title} className="d-block w-100 gallery-img" />
+                </Link>
                 <Card.Body className="text-center">
                   <Card.Title className="text-light">{movie.Title}</Card.Title>
                 </Card.Body>

@@ -2,6 +2,7 @@ import { Navbar, Nav, Container, Button, Dropdown } from "react-bootstrap";
 import { Search, BellFill } from "react-bootstrap-icons";
 import netflixLogo from "../assets/netflix_logo.png";
 import avatarLogo from "../assets/avatar.png";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -13,11 +14,12 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="navbarResponsive" />
         <Navbar.Collapse id="navbarResponsive" style={{ fontSize: "13px" }}>
           <Nav className="me-auto mb-2 mb-lg-0">
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link active href="#">
+            <NavLink to="/" className="nav-link">
+              Home
+            </NavLink>
+            <NavLink to="/tvshows" className="nav-link">
               TV Shows
-            </Nav.Link>
-            <Nav.Link href="#">Movies</Nav.Link>
+            </NavLink>
             <Nav.Link href="#">Recently Added</Nav.Link>
             <Nav.Link href="#">My List</Nav.Link>
           </Nav>
@@ -36,7 +38,11 @@ const Navigation = () => {
                 <img src={avatarLogo} alt="avatar" width="30px" />
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-dark">
-                <Dropdown.Item href="#">Account</Dropdown.Item>
+                <Dropdown.Item>
+                  <NavLink to="/profile-user" className="nav-link">
+                    Account
+                  </NavLink>
+                </Dropdown.Item>
                 <Dropdown.Item href="#">Settings</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item href="#">Exit</Dropdown.Item>
